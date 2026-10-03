@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.weight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
@@ -27,11 +28,11 @@ fun CatalogoScreen(
     onAdicionar: (ItemMenu) -> Unit,
     onIrParaResumo: () -> Unit
 ) {
-    val itens = MenuRepository.itens
+    val pratos = MenuRepository.itens.filterIsInstance<Prato>()
+    val bebidas = MenuRepository.itens.filterIsInstance<Bebida>()
 
     Column(Modifier.fillMaxSize()) {
 
-        // Cabeçalho com indicador de estado
         TopAppBar(
             title = { Text("Cardápio") },
             actions = {
@@ -43,13 +44,11 @@ fun CatalogoScreen(
             }
         )
 
-        // Lista rolável
         LazyColumn(
             modifier = Modifier
                 .weight(1f)
                 .padding(8.dp)
         ) {
-            // Seção PRATOS
             item {
                 Text(
                     text = "PRATOS",
@@ -57,11 +56,14 @@ fun CatalogoScreen(
                     modifier = Modifier.padding(8.dp)
                 )
             }
-            items(itens.filterIsInstance<Prato>()) { prato ->
-                ItemMenuCard(item = prato, onAdicionar = onAdicionar)
+
+            items(pratos) {
+                ItemMenuCard(
+                    item = it,
+                    onAdicionar = onAdicionar
+                )
             }
 
-            // Seção BEBIDAS
             item {
                 Text(
                     text = "BEBIDAS",
@@ -69,12 +71,15 @@ fun CatalogoScreen(
                     modifier = Modifier.padding(8.dp)
                 )
             }
-            items(itens.filterIsInstance<Bebida>()) { bebida ->
-                ItemMenuCard(item = bebida, onAdicionar = onAdicionar)
+
+            items(bebidas) {
+                ItemMenuCard(
+                    item = it,
+                    onAdicionar = onAdicionar
+                )
             }
         }
 
-        // Navegação
         Button(
             onClick = onIrParaResumo,
             modifier = Modifier

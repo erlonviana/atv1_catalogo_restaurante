@@ -6,10 +6,7 @@ import com.example.atv1_catalogo_restaurante.data.model.ItemMenu
 import com.example.atv1_catalogo_restaurante.data.model.Prato
 import java.util.Locale
 
-/**
- * Camada B — Business Logic (Leandro)
- * Gera e imprime o relatório do pedido no Logcat, agrupado por categoria.
- */
+
 object RelatorioLogcat {
 
     private const val TAG = "RelatorioPedido"

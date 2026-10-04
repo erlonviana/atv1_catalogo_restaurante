@@ -11,10 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
-/**
- * Linha reutilizável do recibo: descrição à esquerda, valor à direita.
- * Se destaque = true, usa negrito e tipografia maior (para o TOTAL).
- */
+
 @Composable
 fun LinhaRecibo(
     descricao: String,

@@ -14,10 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.atv1_catalogo_restaurante.data.model.FormaPagamento
 
-/**
- * Seletor interativo de forma de pagamento.
- * Reflete os tipos mapeados em FormaPagamento (sealed class).
- */
 @Composable
 fun SeletorPagamento(
     atual: FormaPagamento,

@@ -1,9 +1,9 @@
 package com.example.atv1_catalogo_restaurante.domain
 
 import android.util.Log
-import com.example.catalogo_restaurante.data.model.Bebida
-import com.example.catalogo_restaurante.data.model.ItemMenu
-import com.example.catalogo_restaurante.data.model.Prato
+import com.example.atv1_catalogo_restaurante.data.model.Bebida
+import com.example.atv1_catalogo_restaurante.data.model.ItemMenu
+import com.example.atv1_catalogo_restaurante.data.model.Prato
 import java.util.Locale
 
 /**

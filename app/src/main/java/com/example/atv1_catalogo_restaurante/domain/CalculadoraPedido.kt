@@ -1,7 +1,7 @@
 package com.example.atv1_catalogo_restaurante.domain
 
-import com.example.catalogo_restaurante.data.model.FormaPagamento
-import com.example.catalogo_restaurante.data.model.ItemMenu
+import com.example.atv1_catalogo_restaurante.data.model.FormaPagamento
+import com.example.atv1_catalogo_restaurante.data.model.ItemMenu
 
 /**
  * Camada B — Business Logic (Leandro)

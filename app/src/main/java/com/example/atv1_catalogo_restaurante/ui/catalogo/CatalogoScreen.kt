@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.weight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
@@ -31,10 +30,14 @@ fun CatalogoScreen(
     val pratos = MenuRepository.itens.filterIsInstance<Prato>()
     val bebidas = MenuRepository.itens.filterIsInstance<Bebida>()
 
-    Column(Modifier.fillMaxSize()) {
+    Column(
+        modifier = Modifier.fillMaxSize()
+    ) {
 
         TopAppBar(
-            title = { Text("Cardápio") },
+            title = {
+                Text("Cardápio")
+            },
             actions = {
                 Text(
                     text = "🛒 ($itensNoCarrinho)",
@@ -57,9 +60,9 @@ fun CatalogoScreen(
                 )
             }
 
-            items(pratos) {
+            items(pratos) { prato ->
                 ItemMenuCard(
-                    item = it,
+                    item = prato,
                     onAdicionar = onAdicionar
                 )
             }
@@ -72,9 +75,9 @@ fun CatalogoScreen(
                 )
             }
 
-            items(bebidas) {
+            items(bebidas) { bebida ->
                 ItemMenuCard(
-                    item = it,
+                    item = bebida,
                     onAdicionar = onAdicionar
                 )
             }

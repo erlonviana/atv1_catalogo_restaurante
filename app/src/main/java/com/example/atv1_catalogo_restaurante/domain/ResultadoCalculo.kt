@@ -9,5 +9,5 @@ data class ResultadoCalculo(
     val subtotal: Double,
     val taxaServico: Double,
     val desconto: Double,
-    val totalFinal: Double
+    val total: Double
 )

@@ -14,7 +14,7 @@ object RelatorioLogcat {
 
     private const val TAG = "RelatorioPedido"
 
-    fun imprimir(itens: List<ItemMenu>) {
+    fun imprimir(itens: List<Pair<ItemMenu, Int>>) {
         Log.d(TAG, "===== RELATÓRIO DE PEDIDO =====")
 
         val agrupados = itens.groupBy { item ->
@@ -26,12 +26,14 @@ object RelatorioLogcat {
 
         agrupados.forEach { (categoria, lista) ->
             Log.d(TAG, "--- $categoria ---")
-            lista.forEach { item ->
+            lista.forEach { (item, qtd) ->
+                val subtotalItem = item.preco * qtd
                 val linha = String.format(
                     Locale.getDefault(),
-                    "%s x1 = R$ %.2f",
+                    "%s x%d = R$ %.2f",
                     item.nome,
-                    item.preco
+                    qtd,
+                    subtotalItem
                 )
                 Log.d(TAG, linha)
             }
